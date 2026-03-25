@@ -5,7 +5,7 @@ const getBestCommentIds = () => {
   })
 
   const body = toString(req.body)
-  const matches = body.match(/<a href=\"item\?id=(\d+)\">[^<]+<\/a><\/span>/g)
+  const matches = body.match(/<a href=\"item\?id=(\d+)\">[^<]+<\/a><\/span>/g) || []
 
   return matches.map(i => i.split('"')[1].split('=')[1])
 }
